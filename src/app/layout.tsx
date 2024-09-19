@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: '#SafeZone - Your Personal Safety Companion',
   },
   description:
-    'Empower yourself with #SafeZone. Report incidents, receive real-time alerts, and stay connected with our AI companion. Join the community making neighborhoods safer.',
+    'Empower yourself with #SafeZone. Report incidents, receive real-time alerts, and stay connected with our 24/7 companion on call. Join the community making neighborhoods safer.',
 }
 
 export default function RootLayout({

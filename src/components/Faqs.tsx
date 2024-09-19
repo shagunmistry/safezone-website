@@ -62,12 +62,12 @@ export function Faqs() {
       className="relative overflow-hidden bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 py-20 sm:py-32"
     >
       <div className="bg-grid-pattern absolute inset-0 opacity-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 backdrop-blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-green-500/30 backdrop-blur-3xl"></div>
       <Container className="relative z-10">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2
             id="faqs-title"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-4xl font-bold tracking-tight text-gray-900 text-transparent"
+            className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-4xl font-bold tracking-tight text-gray-900 text-transparent"
           >
             Frequently asked questions
           </h2>

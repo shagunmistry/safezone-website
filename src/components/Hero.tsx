@@ -1,81 +1,121 @@
+'use client'
+
 import { useId } from 'react'
 import Image from 'next/image'
-import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
-import { AppDemo } from '@/components/AppDemo'
 import { AppStoreLink } from '@/components/AppStoreLink'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { PhoneFrame } from '@/components/PhoneFrame'
-// import logoPolice from '@/images/logos/police.svg'
-// import logoSafetyOrg from '@/images/logos/safety-org.svg'
-// import logoCityCouncil from '@/images/logos/city-council.svg'
-// import logoWomensRights from '@/images/logos/womens-rights.svg'
-// import logoNeighborhoodWatch from '@/images/logos/neighborhood-watch.svg'
+
+import SafezoneHomeScreen from '@/images/SafezoneHomeScreen.png'
+
+import {
+  AlertTriangle,
+  MapPin,
+  Users,
+  Brain,
+  Book,
+  ArrowRight,
+} from 'lucide-react'
 
 function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
-  let id = useId()
+  const id = useId()
 
   return (
-    <div {...props}>
+    <div {...props} className="relative h-full w-full overflow-hidden">
       <svg
         viewBox="0 0 1026 1026"
         fill="none"
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full animate-spin-slow"
+        className="absolute inset-0 h-full w-full animate-pulse"
       >
-        <path
-          d="M1025 513c0 282.77-229.23 512-512 512S1 795.77 1 513 230.23 1 513 1s512 229.23 512 512Z"
-          stroke="#D4D4D4"
-          strokeOpacity="0.7"
+        {/* Main circle */}
+        <circle
+          cx="513"
+          cy="513"
+          r="512"
+          stroke="url(#circleGradient)"
+          strokeWidth="2"
+          fill="none"
         />
+
+        {/* Apple-inspired shapes */}
         <path
-          d="M513 1025C230.23 1025 1 795.77 1 513"
-          stroke={`url(#${id}-gradient-1)`}
+          d="M513 100C734.543 100 915 280.457 915 502C915 723.543 734.543 904 513 904"
+          stroke="url(#appleGradient1)"
+          strokeWidth="4"
           strokeLinecap="round"
-        />
-        <defs>
-          <linearGradient
-            id={`${id}-gradient-1`}
-            x1="1"
-            y1="513"
-            x2="1"
-            y2="1025"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#4CAF50" />
-            <stop offset="1" stopColor="#4CAF50" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <svg
-        viewBox="0 0 1026 1026"
-        fill="none"
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full animate-spin-reverse-slower"
-      >
-        <path
-          d="M913 513c0 220.914-179.086 400-400 400S113 733.914 113 513s179.086-400 400-400 400 179.086 400 400Z"
-          stroke="#D4D4D4"
-          strokeOpacity="0.7"
+          className="animate-spin-slow"
         />
         <path
-          d="M913 513c0 220.914-179.086 400-400 400"
-          stroke={`url(#${id}-gradient-2)`}
+          d="M513 200C679.731 200 815 335.269 815 502C815 668.731 679.731 804 513 804"
+          stroke="url(#appleGradient2)"
+          strokeWidth="4"
           strokeLinecap="round"
+          className="animate-spin-reverse-slower"
         />
+
+        {/* Colorful blobs */}
+        <circle
+          cx="200"
+          cy="200"
+          r="100"
+          fill="url(#blob1)"
+          className="animate-float"
+        />
+        <circle
+          cx="826"
+          cy="826"
+          r="100"
+          fill="url(#blob2)"
+          className="animate-float-reverse"
+        />
+
         <defs>
+          {/* Gradients */}
           <linearGradient
-            id={`${id}-gradient-2`}
-            x1="913"
-            y1="513"
-            x2="913"
-            y2="913"
-            gradientUnits="userSpaceOnUse"
+            id="circleGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
           >
-            <stop stopColor="#4CAF50" />
-            <stop offset="1" stopColor="#4CAF50" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FF9500" />
+            <stop offset="50%" stopColor="#FF2D55" />
+            <stop offset="100%" stopColor="#AF52DE" />
           </linearGradient>
+          <linearGradient id="appleGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#5AC8FA" />
+            <stop offset="100%" stopColor="#007AFF" />
+          </linearGradient>
+          <linearGradient id="appleGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#FF2D55" />
+            <stop offset="100%" stopColor="#FF3B30" />
+          </linearGradient>
+          <radialGradient
+            id="blob1"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(200 200) rotate(45) scale(100)"
+          >
+            <stop stopColor="#34C759" />
+            <stop offset="1" stopColor="#34C759" stopOpacity="0" />
+          </radialGradient>
+          <radialGradient
+            id="blob2"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(826 826) rotate(45) scale(100)"
+          >
+            <stop stopColor="#5856D6" />
+            <stop offset="1" stopColor="#5856D6" stopOpacity="0" />
+          </radialGradient>
         </defs>
       </svg>
     </div>
@@ -93,62 +133,93 @@ function ShieldIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-export function Hero() {
+const FeatureItem = ({
+  icon,
+  text,
+}: {
+  icon: React.ReactNode
+  text: string
+}) => (
+  <div className="flex items-center space-x-3">
+    <div className="flex-shrink-0">{icon}</div>
+    <p className="text-gray-700">{text}</p>
+  </div>
+)
+
+const ComingSoonButton = () => (
+  <motion.a
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 text-lg font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg"
+    href="/stay-updated"
+  >
+    <span>Coming Soon</span>
+    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+  </motion.a>
+)
+
+export const Hero = () => {
   return (
-    <div className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36">
-      <Container>
+    <div className="overflow-hidden bg-gray-50 py-20 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
-            <h1 className="text-4xl font-medium tracking-tight text-gray-900">
+            <h1 className="mb-6 text-5xl font-bold tracking-tight text-gray-900">
               Your personal safety companion.
             </h1>
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mb-8 text-xl text-gray-600">
               #SafeZone empowers you to take control of your personal safety.
-              With instant incident reporting, real-time alerts, and an AI
-              companion, you're never alone in staying secure.
+              With instant incident reporting, real-time alerts, and a 24/7
+              Companion Call, you're never alone in staying secure.
             </p>
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-              <AppStoreLink />
-              <Button
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                variant="outline"
-              >
-                <ShieldIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2.5">Learn how it works</span>
-              </Button>
+            <div className="space-y-4">
+              <FeatureItem
+                icon={<AlertTriangle className="h-6 w-6 text-red-500" />}
+                text="Detailed incident reporting"
+              />
+              <FeatureItem
+                icon={<MapPin className="h-6 w-6 text-blue-500" />}
+                text="Location-based safety services"
+              />
+              <FeatureItem
+                icon={<Users className="h-6 w-6 text-green-500" />}
+                text="Emergency contacts management"
+              />
+              <FeatureItem
+                icon={<Brain className="h-6 w-6 text-purple-500" />}
+                text="AI Companion for 24/7 support"
+              />
+              <FeatureItem
+                icon={<Book className="h-6 w-6 text-orange-500" />}
+                text="Comprehensive safety resources"
+              />
+            </div>
+            <div className="mt-10">
+              <ComingSoonButton />
             </div>
           </div>
           <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
-            <BackgroundIllustration className="absolute left-1/2 top-4 h-[1026px] w-[1026px] -translate-x-1/3 stroke-gray-300/70 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
-            <div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-bottom-20 lg:-top-10 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
-              <PhoneFrame className="mx-auto max-w-[366px]" priority>
-                <AppDemo />
-              </PhoneFrame>
-            </div>
-          </div>
-          {/* <div className="relative -mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6">
-            <p className="text-center text-sm font-semibold text-gray-900 lg:text-left">
-              Trusted by safety organizations
-            </p>
-            <ul
-              role="list"
-              className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-x-10 gap-y-8 lg:mx-0 lg:justify-start"
+            <motion.div
+              className="absolute rounded-[2rem] bg-gradient-to-br from-blue-500 to-purple-600 p-2 shadow-lg"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              {[
-                ['Police Department', logoPolice],
-                ['Safety Organization', logoSafetyOrg],
-                ['City Council', logoCityCouncil],
-                ["Women's Rights Group", logoWomensRights],
-                ['Neighborhood Watch', logoNeighborhoodWatch],
-              ].map(([name, logo]) => (
-                <li key={name} className="flex">
-                  <Image src={logo} alt={name} className="h-8" unoptimized />
-                </li>
-              ))}
-            </ul>
-          </div> */}
+              <div className="rounded-[calc(1.5rem-1px)] bg-white">
+                <div className="p-8">
+                  <Image
+                    src={SafezoneHomeScreen}
+                    alt="SafeZone app home screen"
+                    className="rounded-xl shadow-md"
+                    width={375}
+                    height={812}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </Container>
+      </div>
     </div>
   )
 }

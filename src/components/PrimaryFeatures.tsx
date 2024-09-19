@@ -17,6 +17,12 @@ import { AppScreen } from '@/components/AppScreen'
 import { PhoneFrame } from '@/components/PhoneFrame'
 import { CircleBackground } from '@/components/CircleBackground'
 import { AlertCircle, Map, MessageCircle, Phone, Shield } from 'lucide-react'
+import Image from 'next/image'
+
+import ReportScreen from '@/images/ReportIncidentScreen.png'
+import SafetyResourcesScreen from '@/images/SafetyResourcesScreen.png'
+import SafezoneCompanionScreen from '@/images/SafeZoneCompanionScreen.png'
+import EmergencyContactsScreen from '@/images/EmergencyContactScreen.png'
 
 //#region SVG icons
 function DeviceTouchIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -120,14 +126,14 @@ const features = [
     description:
       'Stay informed about nearby incidents and potential safety risks in your vicinity.',
     icon: Map,
-    screen: AlertScreen,
+    screen: SafetyResourcesScreen,
   },
   {
-    name: 'AI Safety Companion',
+    name: '24/7 Safety Companion',
     description:
-      'Our innovative virtual buddy provides guidance and support when you need it most.',
+      'Feeling alone, unsafe, or just need a friend? Our AI companion is here to help.',
     icon: MessageCircle,
-    screen: AICompanionScreen,
+    screen: SafezoneCompanionScreen,
   },
   {
     name: 'Emergency Contacts',
@@ -191,192 +197,192 @@ type ScreenProps =
     }
   | { animated?: false }
 
-function ReportScreen(props: ScreenProps) {
-  return (
-    <AppScreen className="w-full">
-      <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
-        <AppScreen.Title>Report Incident</AppScreen.Title>
-        <AppScreen.Subtitle>Help keep your community safe</AppScreen.Subtitle>
-      </MotionAppScreenHeader>
-      <MotionAppScreenBody
-        {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
-      >
-        <div className="px-4 py-6">
-          <div className="space-y-4">
-            {[
-              { label: 'Incident Type', value: 'Suspicious Activity' },
-              { label: 'Location', value: '123 Main St' },
-              {
-                label: 'Description',
-                value: 'Person loitering near the park entrance',
-              },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="flex justify-between border-b border-gray-100 pb-4"
-              >
-                <div className="text-sm text-gray-500">{item.label}</div>
-                <div className="text-sm font-semibold text-gray-900">
-                  {item.value}
-                </div>
-              </div>
-            ))}
-            <div className="rounded-lg bg-blue-500 px-3 py-2 text-center text-sm font-semibold text-white">
-              Submit Report
-            </div>
-          </div>
-        </div>
-      </MotionAppScreenBody>
-    </AppScreen>
-  )
-}
+// function ReportScreen(props: ScreenProps) {
+//   return (
+//     <AppScreen className="w-full">
+//       <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
+//         <AppScreen.Title>Report Incident</AppScreen.Title>
+//         <AppScreen.Subtitle>Help keep your community safe</AppScreen.Subtitle>
+//       </MotionAppScreenHeader>
+//       <MotionAppScreenBody
+//         {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
+//       >
+//         <div className="px-4 py-6">
+//           <div className="space-y-4">
+//             {[
+//               { label: 'Incident Type', value: 'Suspicious Activity' },
+//               { label: 'Location', value: '123 Main St' },
+//               {
+//                 label: 'Description',
+//                 value: 'Person loitering near the park entrance',
+//               },
+//             ].map((item) => (
+//               <div
+//                 key={item.label}
+//                 className="flex justify-between border-b border-gray-100 pb-4"
+//               >
+//                 <div className="text-sm text-gray-500">{item.label}</div>
+//                 <div className="text-sm font-semibold text-gray-900">
+//                   {item.value}
+//                 </div>
+//               </div>
+//             ))}
+//             <div className="rounded-lg bg-blue-500 px-3 py-2 text-center text-sm font-semibold text-white">
+//               Submit Report
+//             </div>
+//           </div>
+//         </div>
+//       </MotionAppScreenBody>
+//     </AppScreen>
+//   )
+// }
 
-function AlertScreen(props: ScreenProps) {
-  return (
-    <AppScreen className="w-full">
-      <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
-        <AppScreen.Title>Safety Alerts</AppScreen.Title>
-        <AppScreen.Subtitle>Stay informed, stay safe</AppScreen.Subtitle>
-      </MotionAppScreenHeader>
-      <MotionAppScreenBody
-        {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
-      >
-        <div className="divide-y divide-gray-100">
-          {[
-            {
-              title: 'Suspicious activity reported',
-              location: '2 blocks away',
-              time: '5 min ago',
-            },
-            {
-              title: 'Car break-in',
-              location: 'Oak Street',
-              time: '20 min ago',
-            },
-            {
-              title: 'Lost child found',
-              location: 'Central Park',
-              time: '1 hour ago',
-            },
-          ].map((alert, index) => (
-            <div key={index} className="flex items-center gap-4 px-4 py-3">
-              <div className="flex-none rounded-full bg-red-100 p-2">
-                <AlertCircle className="h-5 w-5 text-red-500" />
-              </div>
-              <div className="flex-auto">
-                <div className="text-sm font-medium text-gray-900">
-                  {alert.title}
-                </div>
-                <div className="text-sm text-gray-500">{alert.location}</div>
-              </div>
-              <div className="text-xs text-gray-500">{alert.time}</div>
-            </div>
-          ))}
-        </div>
-      </MotionAppScreenBody>
-    </AppScreen>
-  )
-}
+// function AlertScreen(props: ScreenProps) {
+//   return (
+//     <AppScreen className="w-full">
+//       <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
+//         <AppScreen.Title>Safety Alerts</AppScreen.Title>
+//         <AppScreen.Subtitle>Stay informed, stay safe</AppScreen.Subtitle>
+//       </MotionAppScreenHeader>
+//       <MotionAppScreenBody
+//         {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
+//       >
+//         <div className="divide-y divide-gray-100">
+//           {[
+//             {
+//               title: 'Suspicious activity reported',
+//               location: '2 blocks away',
+//               time: '5 min ago',
+//             },
+//             {
+//               title: 'Car break-in',
+//               location: 'Oak Street',
+//               time: '20 min ago',
+//             },
+//             {
+//               title: 'Lost child found',
+//               location: 'Central Park',
+//               time: '1 hour ago',
+//             },
+//           ].map((alert, index) => (
+//             <div key={index} className="flex items-center gap-4 px-4 py-3">
+//               <div className="flex-none rounded-full bg-red-100 p-2">
+//                 <AlertCircle className="h-5 w-5 text-red-500" />
+//               </div>
+//               <div className="flex-auto">
+//                 <div className="text-sm font-medium text-gray-900">
+//                   {alert.title}
+//                 </div>
+//                 <div className="text-sm text-gray-500">{alert.location}</div>
+//               </div>
+//               <div className="text-xs text-gray-500">{alert.time}</div>
+//             </div>
+//           ))}
+//         </div>
+//       </MotionAppScreenBody>
+//     </AppScreen>
+//   )
+// }
 
-function AICompanionScreen(props: ScreenProps) {
-  return (
-    <AppScreen className="w-full">
-      <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
-        <AppScreen.Title>AI Safety Companion</AppScreen.Title>
-        <AppScreen.Subtitle>Your personal safety guide</AppScreen.Subtitle>
-      </MotionAppScreenHeader>
-      <MotionAppScreenBody
-        {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
-      >
-        <div className="flex h-full flex-col">
-          <div className="flex-1 overflow-y-auto px-4 py-6">
-            <div className="space-y-4">
-              <div className="flex justify-start">
-                <div className="max-w-[75%] rounded-lg bg-gray-200 px-4 py-2">
-                  <p className="text-sm">
-                    Hello! I'm your AI safety companion. How can I assist you
-                    today?
-                  </p>
-                </div>
-              </div>
-              <div className="flex justify-end">
-                <div className="max-w-[75%] rounded-lg bg-blue-500 px-4 py-2 text-white">
-                  <p className="text-sm">
-                    I'm walking alone at night. Any safety tips?
-                  </p>
-                </div>
-              </div>
-              <div className="flex justify-start">
-                <div className="max-w-[75%] rounded-lg bg-gray-200 px-4 py-2">
-                  <p className="text-sm">
-                    Stay in well-lit areas, be aware of your surroundings, and
-                    keep your phone ready. Would you like me to activate live
-                    location sharing with your emergency contacts?
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 px-4 py-3">
-            <div className="flex items-center">
-              <input
-                type="text"
-                placeholder="Type your message..."
-                className="flex-1 rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button className="ml-2 rounded-full bg-blue-500 p-2 text-white">
-                <MessageCircle className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </MotionAppScreenBody>
-    </AppScreen>
-  )
-}
+// function AICompanionScreen(props: ScreenProps) {
+//   return (
+//     <AppScreen className="w-full">
+//       <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
+//         <AppScreen.Title>AI Safety Companion</AppScreen.Title>
+//         <AppScreen.Subtitle>Your personal safety guide</AppScreen.Subtitle>
+//       </MotionAppScreenHeader>
+//       <MotionAppScreenBody
+//         {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
+//       >
+//         <div className="flex h-full flex-col">
+//           <div className="flex-1 overflow-y-auto px-4 py-6">
+//             <div className="space-y-4">
+//               <div className="flex justify-start">
+//                 <div className="max-w-[75%] rounded-lg bg-gray-200 px-4 py-2">
+//                   <p className="text-sm">
+//                     Hello! I'm your AI safety companion. How can I assist you
+//                     today?
+//                   </p>
+//                 </div>
+//               </div>
+//               <div className="flex justify-end">
+//                 <div className="max-w-[75%] rounded-lg bg-blue-500 px-4 py-2 text-white">
+//                   <p className="text-sm">
+//                     I'm walking alone at night. Any safety tips?
+//                   </p>
+//                 </div>
+//               </div>
+//               <div className="flex justify-start">
+//                 <div className="max-w-[75%] rounded-lg bg-gray-200 px-4 py-2">
+//                   <p className="text-sm">
+//                     Stay in well-lit areas, be aware of your surroundings, and
+//                     keep your phone ready. Would you like me to activate live
+//                     location sharing with your emergency contacts?
+//                   </p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="border-t border-gray-200 px-4 py-3">
+//             <div className="flex items-center">
+//               <input
+//                 type="text"
+//                 placeholder="Type your message..."
+//                 className="flex-1 rounded-full border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+//               />
+//               <button className="ml-2 rounded-full bg-blue-500 p-2 text-white">
+//                 <MessageCircle className="h-5 w-5" />
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </MotionAppScreenBody>
+//     </AppScreen>
+//   )
+// }
 
-function EmergencyContactsScreen(props: ScreenProps) {
-  return (
-    <AppScreen className="w-full">
-      <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
-        <AppScreen.Title>Emergency Contacts</AppScreen.Title>
-        <AppScreen.Subtitle>Quick access to help</AppScreen.Subtitle>
-      </MotionAppScreenHeader>
-      <MotionAppScreenBody
-        {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
-      >
-        <div className="px-4 py-6">
-          <div className="space-y-4">
-            {[
-              { name: 'Local Police', number: '911' },
-              { name: 'Mom', number: '+1 (555) 123-4567' },
-              { name: 'Dad', number: '+1 (555) 987-6543' },
-              { name: 'Best Friend', number: '+1 (555) 246-8135' },
-            ].map((contact, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between border-b border-gray-100 pb-4"
-              >
-                <div>
-                  <div className="text-sm font-medium text-gray-900">
-                    {contact.name}
-                  </div>
-                  <div className="text-sm text-gray-500">{contact.number}</div>
-                </div>
-                <button className="rounded-full bg-green-500 p-2">
-                  <Phone className="h-5 w-5 text-white" />
-                </button>
-              </div>
-            ))}
-            <div className="rounded-lg bg-blue-500 px-3 py-2 text-center text-sm font-semibold text-white">
-              Add New Contact
-            </div>
-          </div>
-        </div>
-      </MotionAppScreenBody>
-    </AppScreen>
-  )
-}
+// function EmergencyContactsScreen(props: ScreenProps) {
+//   return (
+//     <AppScreen className="w-full">
+//       <MotionAppScreenHeader {...(props.animated ? headerAnimation : {})}>
+//         <AppScreen.Title>Emergency Contacts</AppScreen.Title>
+//         <AppScreen.Subtitle>Quick access to help</AppScreen.Subtitle>
+//       </MotionAppScreenHeader>
+//       <MotionAppScreenBody
+//         {...(props.animated ? { ...bodyAnimation, custom: props.custom } : {})}
+//       >
+//         <div className="px-4 py-6">
+//           <div className="space-y-4">
+//             {[
+//               { name: 'Local Police', number: '911' },
+//               { name: 'Mom', number: '+1 (555) 123-4567' },
+//               { name: 'Dad', number: '+1 (555) 987-6543' },
+//               { name: 'Best Friend', number: '+1 (555) 246-8135' },
+//             ].map((contact, index) => (
+//               <div
+//                 key={index}
+//                 className="flex items-center justify-between border-b border-gray-100 pb-4"
+//               >
+//                 <div>
+//                   <div className="text-sm font-medium text-gray-900">
+//                     {contact.name}
+//                   </div>
+//                   <div className="text-sm text-gray-500">{contact.number}</div>
+//                 </div>
+//                 <button className="rounded-full bg-green-500 p-2">
+//                   <Phone className="h-5 w-5 text-white" />
+//                 </button>
+//               </div>
+//             ))}
+//             <div className="rounded-lg bg-blue-500 px-3 py-2 text-center text-sm font-semibold text-white">
+//               Add New Contact
+//             </div>
+//           </div>
+//         </div>
+//       </MotionAppScreenBody>
+//     </AppScreen>
+//   )
+// }
 
 function usePrevious<T>(value: T) {
   let ref = useRef<T>()
@@ -404,14 +410,14 @@ function FeaturesDesktop() {
   )
 
   return (
-    <Tab.Group
+    <TabGroup
       as="div"
       className="grid grid-cols-12 items-center gap-8 lg:gap-16 xl:gap-24"
       selectedIndex={selectedIndex}
       onChange={onChange}
       vertical
     >
-      <Tab.List className="relative z-10 order-last col-span-6 space-y-6">
+      <TabList className="relative z-10 order-last col-span-6 space-y-6">
         {features.map((feature, featureIndex) => {
           const isSelected = featureIndex === selectedIndex
           return (
@@ -449,12 +455,12 @@ function FeaturesDesktop() {
             </div>
           )
         })}
-      </Tab.List>
+      </TabList>
       <div className="relative col-span-6">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <CircleBackground
             color="url(#grad1)"
-            className="animate-spin-slower"
+            className="animate-spin-reverse-slow"
           />
           <svg width="0" height="0">
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -470,30 +476,34 @@ function FeaturesDesktop() {
           </svg>
         </div>
         <PhoneFrame className="z-10 mx-auto w-full max-w-[366px] rounded-[44px] bg-gray-900">
-          <Tab.Panels as={Fragment}>
+          <TabPanels as={Fragment}>
             <AnimatePresence
               initial={false}
               custom={{ isForwards, changeCount }}
             >
               {features.map((feature, featureIndex) =>
                 selectedIndex === featureIndex ? (
-                  <Tab.Panel
+                  <TabPanel
                     static
                     key={feature.name + changeCount}
                     className="col-start-1 row-start-1 flex focus:outline-none"
                   >
-                    <feature.screen
-                      animated
-                      custom={{ isForwards, changeCount }}
+                    <Image
+                      src={feature.screen}
+                      alt={feature.name}
+                      layout="responsive"
+                      width={366}
+                      height={448}
+                      unoptimized
                     />
-                  </Tab.Panel>
+                  </TabPanel>
                 ) : null,
               )}
             </AnimatePresence>
-          </Tab.Panels>
+          </TabPanels>
         </PhoneFrame>
       </div>
-    </Tab.Group>
+    </TabGroup>
   )
 }
 
@@ -549,11 +559,18 @@ function FeaturesMobile() {
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <CircleBackground
                   color="#13B5C8"
-                  className={featureIndex % 2 === 1 ? 'rotate-180' : undefined}
+                  className={featureIndex % 2 === 1 ? 'rotate-275' : undefined}
                 />
               </div>
               <PhoneFrame className="relative mx-auto w-full max-w-[366px]">
-                <feature.screen />
+                <Image
+                  src={feature.screen}
+                  alt={feature.name}
+                  layout="responsive"
+                  width={366}
+                  height={448}
+                  unoptimized
+                />
               </PhoneFrame>
               <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
                 <feature.icon className="h-8 w-8" />
@@ -598,10 +615,10 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Primary features of SafeZone"
-      className="relative overflow-hidden bg-gradient-to-b from-blue-100 via-purple-100 to-pink-100 py-20 sm:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-blue-100 via-purple-100 to-green-100 py-20 sm:py-32"
     >
       <div className="bg-grid-pattern absolute inset-0 opacity-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 backdrop-blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-green-500/30 backdrop-blur-3xl"></div>
       <Container className="relative z-10">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl">
           <h2 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-4xl font-bold tracking-tight text-gray-900 text-transparent">
