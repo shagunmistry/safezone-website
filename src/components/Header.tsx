@@ -23,14 +23,15 @@ const Header = () => {
 
           <div className="hidden items-center space-x-4 md:flex">
             <NavLink href="/#features">Features</NavLink>
-            {/* <NavLink href="/#reviews">Reviews</NavLink>
-            <NavLink href="/#pricing">Pricing</NavLink>
+            {/* <NavLink href="/#pricing">Pricing</NavLink>
             <NavLink href="/#faqs">FAQs</NavLink> */}
           </div>
 
           <div className="hidden items-center space-x-4 md:flex">
-            {/* <Button variant="outline">Log in</Button> */}
-            <Button>Stay Updated</Button>
+            <Button variant="outline" href="/support">
+              Support
+            </Button>
+            <Button href="/stay-updated">Stay Updated</Button>
           </div>
 
           <div className="md:hidden">
@@ -60,10 +61,12 @@ const Header = () => {
               <MobileNavLink href="/#faqs">FAQs</MobileNavLink>
             </div>
             <div className="space-y-2 px-4 py-4">
-              {/* <Button fullWidth variant="outline">
-                Log in
-              </Button> */}
-              <Button fullWidth>Stay Updated</Button>
+              <Button fullWidth variant="outline" href="/support">
+                Support
+              </Button>
+              <Button fullWidth href="/stay-updated">
+                Stay Updated
+              </Button>
             </div>
           </motion.div>
         )}
@@ -106,10 +109,12 @@ const Button = ({
   children,
   variant = 'default',
   fullWidth = false,
+  href,
 }: {
   children: React.ReactNode
-  variant?: 'default' | 'outline'
+  href: string
   fullWidth?: boolean
+  variant?: 'default' | 'outline'
 }) => (
   <Link
     className={` ${fullWidth ? 'w-full' : ''} ${
@@ -117,7 +122,7 @@ const Button = ({
         ? 'border border-gray-300 text-gray-700 hover:bg-gray-50'
         : 'bg-gradient-to-r from-blue-500 to-green-500 text-white hover:from-blue-600 hover:to-green-600'
     } rounded-full px-4 py-2 text-sm font-medium transition duration-150 ease-in-out`}
-    href="/stay-updated"
+    href={href}
   >
     {children}
   </Link>

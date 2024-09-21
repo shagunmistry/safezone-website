@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
             <nav className="flex flex-wrap gap-6">
               <NavLink href="/#features">Features</NavLink>
-              {/* <NavLink href="/#reviews">Reviews</NavLink> */}
+              <NavLink href="/privacy-policy">Privacy Policy</NavLink>
               {/* <NavLink href="/#pricing">Pricing</NavLink> */}
               {/* <NavLink href="/#faqs">FAQs</NavLink> */}
             </nav>
